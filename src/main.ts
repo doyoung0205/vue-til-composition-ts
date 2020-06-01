@@ -3,7 +3,12 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
+import VueCompositionApi from "@vue/composition-api";
 
+import { formatDate } from "./utils/filters";
+
+Vue.filter("formatDate", formatDate);
+Vue.use(VueCompositionApi);
 Vue.config.productionTip = false;
 
 new Vue({
