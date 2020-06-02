@@ -35,7 +35,7 @@ export default {
 
     const fetchData = async () => {
       isLoading.value = true;
-      const { data } = await fetchPosts();
+      const { data } = await fetchPosts<PostListResponse>();
       isLoading.value = false;
       postItems.value = data.posts;
     };

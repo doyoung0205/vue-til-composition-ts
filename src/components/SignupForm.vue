@@ -24,7 +24,7 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, ref } from "@/vueWrapper";
 import { registerUser } from "@/api/auth";
-import { UserData } from "@/types/userType";
+import { UserData, SignUpResponse } from "@/types/userType";
 
 export default defineComponent({
   setup() {
@@ -44,13 +44,16 @@ export default defineComponent({
     };
 
     const submitForm = async () => {
-      const { data } = await registerUser({
+      const { data } = await registerUser<SignUpResponse>({
         username: userData.username,
         password: userData.password,
         nickname: userData.nickname
       });
+
       console.log(data);
-      logMessage.value = `${data.username} 님이 가입되었습니 다`;
+
+      logMessage.value = `${data.username} 님이 가입되었습니다`;
+
       initForm();
     };
 

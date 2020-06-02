@@ -5,7 +5,6 @@
  * 무언가를 껴넣는 것이다.
  *
  * 해결방안 : 외부 의존성을 최소화 하면서 Composition API 를 안전하게 적용하기 위한 대안으로 Wrapper 패턴을 사용할 수 있다.
- *
  */
 export {
   SetupContext,

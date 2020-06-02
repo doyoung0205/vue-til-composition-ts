@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, computed, toRefs } from "@/vueWrapper";
+import { defineComponent } from "@/vueWrapper";
 import { deletePost } from "@/api/posts";
 
 export default defineComponent({
@@ -34,7 +34,7 @@ export default defineComponent({
       }
     };
     const routeEditPage = () => {
-      const id = props.postItem._id;
+      const id: stirng = props.postItem._id;
       router.push(`/post/${id}`);
     };
 

@@ -27,20 +27,13 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  reactive,
-  ref,
-  computed,
-  onMounted,
-  toRefs
-} from "@/vueWrapper";
+import { defineComponent, reactive, ref, computed, toRefs } from "@/vueWrapper";
 import { fetchPost, editPost } from "@/api/posts";
-import { PostType } from "@/types/postType";
+import { PostRequest } from "@/types/postType";
 export default defineComponent({
   setup(props, context) {
     const router = context.root.$router;
-    const postData = reactive<PostType>({
+    const postData = reactive<PostRequest>({
       title: "",
       contents: ""
     });
@@ -65,7 +58,7 @@ export default defineComponent({
 
     const createHook = async () => {
       const id = router.currentRoute.params.id;
-      const { data } = await fetchPost(id);
+      const { data } = await fetchPost<PostResponse>(id);
       postData.title = data.title;
       postData.contents = data.contents;
     };

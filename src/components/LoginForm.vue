@@ -41,7 +41,7 @@ import {
 import { validateEmail } from "@/utils/validation";
 // import store from "@/store";
 import { useStore } from "@/store/useStore";
-import { UserData } from "@/types/userType";
+import { UserData, LoginRequest } from "@/types/userType";
 
 export default defineComponent({
   setup(props, context) {
@@ -76,7 +76,7 @@ export default defineComponent({
     const submitForm = async () => {
       try {
         // 비즈니스 로직
-        const params = {
+        const params: LoginRequest = {
           username: userData.username,
           password: userData.password
         };

@@ -1,22 +1,22 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 import { setInterceptors } from "./common/interceptors";
 
-function createInstance() {
+function createInstance(): AxiosInstance {
   return axios.create({
     baseURL: process.env.VUE_APP_API_URL
   });
 }
 
 // 액시오스 초기화 함수
-function createInstanceWithAuth(url: string) {
-  const instance = axios.create({
+function createInstanceWithAuth(url: string): AxiosInstance {
+  const instance: AxiosInstance = axios.create({
     baseURL: `${process.env.VUE_APP_API_URL}${url}`
   });
   return setInterceptors(instance);
 }
 
-export const instance = createInstance();
-export const posts = createInstanceWithAuth("posts");
+export const instance: AxiosInstance = createInstance();
+export const posts: AxiosInstance = createInstanceWithAuth("posts");
 
 // CREATE - posts
 // POST - posts

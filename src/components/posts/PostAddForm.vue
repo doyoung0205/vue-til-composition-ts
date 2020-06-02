@@ -29,12 +29,12 @@
 <script lang="ts">
 import { defineComponent, reactive, ref, computed, toRefs } from "@/vueWrapper";
 import { createPost } from "@/api/posts";
-import { PostType } from "@/types/postType";
+import { PostRequest } from "@/types/postType";
 
 export default defineComponent({
   setup(props, context) {
     const router = context.root.$router;
-    const postData = reactive<PostType>({
+    const postData = reactive<PostRequest>({
       title: "",
       contents: ""
     });
@@ -45,7 +45,7 @@ export default defineComponent({
 
     const submitForm = async () => {
       try {
-        const response = await createPost({
+        const response = await createPost<PostResponse>({
           title: postData.title,
           contents: postData.contents
         });
