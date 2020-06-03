@@ -1,29 +1,4 @@
-# vue-til-composition-ts
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+기존의 END GAME 을 typescript, composition-api 로 리팩토링 해보았습니다. !
+typescript 위주로 봐주시면 좋을 것 같아요 !! 
+store 폴더에 index.ts 파일에 주석친 부분이 왜 에러가 나는지 모르겠습니다. !!!
+패키지 구조나, typescript 위주의 조언 이나 다른 조언 다 부탁드립니다 ㅎㅎ! 고생하셨습니다! 
