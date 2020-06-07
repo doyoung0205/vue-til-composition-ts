@@ -6,7 +6,7 @@ import {
   saveAuthToCookie,
   saveUserToCookie
 } from "@/utils/cookies";
-import { LoginResponse } from "@/types/userType";
+import { LoginResponse, UserData } from "@/types/userType";
 import { loginUser } from "@/api/auth.ts";
 
 Vue.use(Vuex);
@@ -17,12 +17,12 @@ export default new Vuex.Store({
     token: getAuthFromCookie() || ""
   },
   getters: {
-    isLogin(state) {
+    isLogin(state): boolean {
       return state.username !== "";
     }
   },
   mutations: {
-    setUsername(state, username) {
+    setUsername(state, username): void {
       state.username = username;
     },
     clearUsername(state) {
@@ -36,9 +36,8 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async LOGIN({ commit }, userData) {
+    async LOGIN({ commit }, userData: UserData): Promise<LoginResponse> {
       const { data } = await loginUser(userData);
-      // const { data } = await loginUser<LoginResponse>(userData);
       console.log(data.token);
       commit("setToken", data.token);
       commit("setUsername", data.user.username);
