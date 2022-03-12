@@ -24,11 +24,11 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, ref } from "@/vueWrapper";
 import { registerUser } from "@/api/auth";
-import { UserData, SignUpResponse } from "@/types/userType";
+import { SignUpRequest } from "@/types/userType";
 
 export default defineComponent({
   setup() {
-    const userData = reactive<UserData>({
+    const userData = reactive<SignUpRequest>({
       username: "",
       password: "",
       nickname: ""
@@ -44,7 +44,7 @@ export default defineComponent({
     };
 
     const submitForm = async () => {
-      const { data } = await registerUser<SignUpResponse>({
+      const { data } = await registerUser({
         username: userData.username,
         password: userData.password,
         nickname: userData.nickname
